@@ -1,0 +1,26 @@
+{
+  "name": "vite-plugin-autoedit",
+  "version": "0.0.1",
+  "description": "A vite plugin to make apps auto-editables",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "vite-plugin"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vite-dev-rpc": "0.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^4.7.3",
+    "vite": "^2.9.12"
+  }
+}
