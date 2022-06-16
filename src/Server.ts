@@ -9,19 +9,8 @@ export function autoEditPlugin(): Plugin {
     name: 'autoedit',
     configureServer(server) {
       const rpc = createRPCServer<ClientFunctions, ServerFunctions>('autoedit', server.ws, {
-        add(a, b) {
-          // eslint-disable-next-line no-console
-          console.log(`RPC ${a} ADD ${b}`)
-          const result = a + b
-          if (result > 150) {
-            setTimeout(() => {
-              rpc.alert.asEvent(`Someone got ${result}!`)
-            }, 50)
-          }
-          return result
-        },
-        save(payload) {
-          fs.writeFileSync('src/count.json',JSON.stringify(payload))
+        save(path, payload) {
+          fs.writeFileSync(path,JSON.stringify(payload))
           console.log(payload)
           return 'success'
         }
