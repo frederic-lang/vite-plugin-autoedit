@@ -32,7 +32,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vite-dev-rpc": "0.0.2"
+    "vite-dev-rpc": "0.0.2",
+    "vite-hot-client": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
