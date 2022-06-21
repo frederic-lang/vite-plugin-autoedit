@@ -4,9 +4,9 @@ import type { AutoEditClient, ClientFunctions, ServerFunctions } from './rpc'
 
 
 
-export function autoEditClient(hot: ViteHotContext) : AutoEditClient | false {
+export function autoEditClient(hot: ViteHotContext) : AutoEditClient | undefined {
 
-  let aeClient = false as AutoEditClient | false
+  let aeClient = undefined as AutoEditClient | undefined
 
   if (hot) {
     aeClient = createRPCClient<ServerFunctions, ClientFunctions>('autoedit', hot as ViteHotContext, {
