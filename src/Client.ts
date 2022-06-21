@@ -1,20 +1,22 @@
 import { createRPCClient } from 'vite-dev-rpc'
-import { hot, ViteHotContext } from 'vite-hot-client'
+import { ViteHotContext } from 'vite/types/hot'
 import type { AutoEditClient, ClientFunctions, ServerFunctions } from './rpc'
 
 
-let rpc = false as AutoEditClient | false
 
-if (hot) {
-  rpc = createRPCClient<ServerFunctions, ClientFunctions>('autoedit', hot as ViteHotContext, {
-    alert(message) {
-      console.log(message)
-    },
-  })
-}
+export function autoEditClient(hot: ViteHotContext) : AutoEditClient | false {
 
-export function autoEditClient() : AutoEditClient | false {
-  return rpc;
+  let aeClient = false as AutoEditClient | false
+
+  if (hot) {
+    aeClient = createRPCClient<ServerFunctions, ClientFunctions>('autoedit', hot as ViteHotContext, {
+      alert(message) {
+        console.log(message)
+      },
+    })
+  }
+
+  return aeClient;
 }
 
 
