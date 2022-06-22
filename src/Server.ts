@@ -10,8 +10,7 @@ export function autoEditPlugin(): Plugin {
     configureServer(server) {
       const rpc = createRPCServer<ClientFunctions, ServerFunctions>('autoedit', server.ws, {
         save(path, payload) {
-          fs.writeFileSync(path,JSON.stringify(payload))
-          console.log(payload)
+          fs.writeFileSync(path, JSON.stringify(payload, null, 2))
           return 'success'
         }
       })
