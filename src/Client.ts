@@ -4,7 +4,7 @@ import type { AutoEditClient, ClientFunctions, ServerFunctions } from './rpc'
 
 
 
-export function autoEditClient(hot: ViteHotContext) : AutoEditClient | undefined {
+export function createAutoEditClient(hot: ViteHotContext) : AutoEditClient | undefined {
 
   let aeClient = undefined as AutoEditClient | undefined
 
